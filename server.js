@@ -31,10 +31,4 @@ app.get('/notes', (req, res) =>
 // Promise version of fs.readFile
 const readFromFile = util.promisify(fs.readFile);
 
-// GET Route for retrieving all the notes saved in db.json
-app.get('/api/notes', (req, res) => {
-    console.info(`${req.method} request received for notes`);
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
-  });
-
 app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
